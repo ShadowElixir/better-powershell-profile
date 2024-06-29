@@ -35,4 +35,5 @@ Copy-Item -Path ~\scoop\apps\fastfetch\current\presets\paleofetch.jsonc -Destina
 irm cutt.ly/pacman-apt | iex
 
 ## Install my profile
+Rename-Item -Path $PROFILE.CurrentUserAllHosts -NewName ("profile." + (Get-Date -Format 'dd-MM-yyyy.HH.mm.ss') + ".ps1") -erroraction 'silentlycontinue'
 irm https://raw.githubusercontent.com/ShadowElixir/better-powershell-profile/main/profile.ps1 >> $PROFILE.CurrentUserAllHosts
