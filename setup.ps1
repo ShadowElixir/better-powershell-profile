@@ -1,3 +1,9 @@
+# Ensure the script can run with elevated privileges - Code from CTT
+if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Warning "Please run this script as an Administrator!"
+    break
+}
+
 ## Install Chris Titus' profile first
 irm "https://github.com/ChrisTitusTech/powershell-profile/raw/main/setup.ps1" | iex
 
@@ -34,3 +40,6 @@ scoop install mplayer
 
 # pacman-apt
 irm cutt.ly/pacman-apt | iex
+
+## Install my profile
+irm https://raw.githubusercontent.com/ShadowElixir/better-powershell-profile/main/profile.ps1 >> $PROFILE.CurrentUserAllHosts
