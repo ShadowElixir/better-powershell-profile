@@ -20,8 +20,9 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
 scoop install aria2
 scoop config aria2-warning-enabled false
 
-# Install git
+# Add extras bucket in scoop
 scoop install git
+scoop bucket add extras
 
 # Fastfetch install
 scoop install fastfetch
@@ -29,14 +30,6 @@ Rename-Item -Path "~/.config/fastfetch/config.jsonc" -NewName ("config." + (Get-
 fastfetch --gen-config
 del ~\.config\fastfetch\config.jsonc
 Copy-Item -Path ~\scoop\apps\fastfetch\current\presets\paleofetch.jsonc -Destination ~/.config/fastfetch/config.jsonc
-
-# GUI is bloat
-scoop bucket add extras
-scoop install vcredist2010
-scoop install ffmpeg
-scoop install youtube-dl
-scoop install yt-dlp
-scoop install mplayer
 
 # pacman-apt
 irm cutt.ly/pacman-apt | iex
