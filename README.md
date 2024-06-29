@@ -13,3 +13,10 @@ For anything other than Powershell Core:
 ```
 pwsh -Command "irm cutt.ly/powerprofile | iex"
 ```
+
+## 🛠️ Disable "Loading personal and system profiles took *** ms"
+
+1. Open Windows Terminal settings
+2. Click Powershell (in Profiles)
+3. Select Command line
+4. Add `-nologo` to the end
