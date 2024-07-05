@@ -21,7 +21,7 @@ pwsh -Command "irm cutt.ly/powerprofile | iex"
 4. In Windows Terminal settings, go to `Appearance` and disable `Hide the title bar` and `Always show tabs`.
    
    4a. If you want to use tabs, make sure to enable `Use acrylic material in the tab row`.
-5. In Windows Terminal profiles settings, go to `Powershell` or `Defaults`, set Cursor shape to `Double underscore`.
+5. In Windows Terminal profiles settings, go to `Powershell` or `Defaults`, set Cursor shape to `Bar` or `Double underscore`.
 6. For transparency, set background opacity to `75%` and enable `Enable acrylic material`.
 
    *(It might look better without transparency)*
