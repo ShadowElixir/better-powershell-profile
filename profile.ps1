@@ -1,3 +1,6 @@
+# Initial GitHub.com connectivity check with 1 second timeout - Code from Chris Titus
+$canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
+
 # Check for Profile Updates - Code from Chris Titus
 function UpdateProf {
     if (-not $global:canConnectToGitHub) {
