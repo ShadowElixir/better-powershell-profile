@@ -1,3 +1,26 @@
+# Check for Profile Updates - Code from Chris Titus
+function UpdateProf {
+    if (-not $global:canConnectToGitHub) {
+        return
+    }
+
+    try {
+        $url = "https://raw.githubusercontent.com/ShadowElixir/better-powershell-profile/main/profile.ps1"
+        $oldhash = Get-FileHash $PROFILE.CurrentUserAllHosts
+        Invoke-RestMethod $url -OutFile "$env:temp/profile.ps1"
+        $newhash = Get-FileHash "$env:temp/profile.ps1"
+        if ($newhash.Hash -ne $oldhash.Hash) {
+            Copy-Item -Path "$env:temp/profile.ps1" -Destination $PROFILE.CurrentUserAllHosts -Force
+            Write-Host "Profile has been updated. Please restart your shell to reflect changes" -ForegroundColor Blue
+        }
+    } catch {
+        Write-Error "Unable to check for `$PROFILE.CurrentUserAllHosts updates"
+    } finally {
+        Remove-Item "$env:temp/profile.ps1" -ErrorAction SilentlyContinue
+    }
+}
+UpdateProf
+
 # Display fastfetch
 fastfetch -l "Windows 7"
 
@@ -6,6 +29,8 @@ function Get-IPInfo { (Get-PubIP) | ForEach-Object {curl "https://api.db-ip.com/
 
 # pacman-apt
 Import-Module "pacman-apt"
+Import-Module "gsudoModule"
+function sudo { gsudo "Import-Module pacman-apt; $args" }
 
 # Useful Shortcuts
 function vs { powershell "irm cutt.ly/manyscripts | iex" }
