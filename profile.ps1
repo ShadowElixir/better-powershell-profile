@@ -1,3 +1,6 @@
+# Display fastfetch
+fastfetch -l "Windows 7"
+
 # Initial GitHub.com connectivity check with 1 second timeout - Code from Chris Titus
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
 
@@ -23,9 +26,6 @@ function UpdateProf {
     }
 }
 UpdateProf
-
-# Display fastfetch
-fastfetch -l "Windows 7"
 
 # Network Utilities
 function Get-IPInfo { (Get-PubIP) | ForEach-Object {curl "https://api.db-ip.com/v2/free/$_" } }
