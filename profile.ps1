@@ -40,7 +40,7 @@ function vs { powershell "irm cutt.ly/manyscripts | iex" }
 function ms { powershell "irm cutt.ly/manyscripts | iex" }
 function sos { powershell "irm cutt.ly/shadowos | iex" }
 function shadowos { powershell "irm cutt.ly/shadowos | iex" }
-function debloat { powershell "irm christitus.com/win | iex" }
+function debloat { powershell "irm cutt.ly/debloat-windows | iex" }
 function act { powershell "irm massgrave.dev/get | iex" }
 
 # oh-my-posh
