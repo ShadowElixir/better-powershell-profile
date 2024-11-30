@@ -34,6 +34,11 @@ Copy-Item -Path ~\scoop\apps\fastfetch\current\presets\paleofetch.jsonc -Destina
 # pacman-apt
 irm cutt.ly/pacman-apt | iex
 
+# oh-my-posh config
+(Get-Content -Path "$env:LOCALAPPDATA\Programs\oh-my-posh\themes\microverse-power.omp.json" -Raw) -split "`n" | 
+ForEach-Object -Begin { $i = 0 } -Process { if ($i++ -eq 2) { '  "auto_upgrade": true,' } ; $_ } | 
+Set-Content -Path "$env:LOCALAPPDATA\Programs\oh-my-posh\themes\microverse-power.omp.json" -Encoding UTF8
+
 ## Install my profile
 Rename-Item -Path $PROFILE.CurrentUserAllHosts -NewName ("profile." + (Get-Date -Format 'dd-MM-yyyy.HH.mm.ss') + ".ps1") -erroraction 'silentlycontinue'
 irm https://raw.githubusercontent.com/ShadowElixir/better-powershell-profile/main/profile.ps1 >> $PROFILE.CurrentUserAllHosts
