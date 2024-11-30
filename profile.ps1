@@ -44,4 +44,4 @@ function debloat { powershell "irm cutt.ly/debloat-windows | iex" }
 function act { powershell "irm massgrave.dev/get | iex" }
 
 # oh-my-posh
-oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/microverse-power.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config microverse-power.omp.json | Invoke-Expression
